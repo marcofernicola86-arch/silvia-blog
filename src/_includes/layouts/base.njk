@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <title>
+    {% if title %}{{ title }} – Blog Silvia Genevro{% else %}Blog Silvia Genevro{% endif %}
+  </title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {% if seo_description %}
+  <meta name="description" content="{{ seo_description }}">
+  {% endif %}
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Blog Silvia Genevro",
+    "url": "https://blog.silviagenevro.it"
+  }
+  </script>
+
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background: #fffaf5;
+      color: #222;
+    }
+    header, footer {
+      padding: 1.5rem 1rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    a {
+      color: #00796b;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><a href="/">Blog di Silvia Genevro</a></h1>
+    <p>Mindfulness, MBSR, consapevolezza e benessere.</p>
+  </header>
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <footer>
+    <p>&copy; {{ "now" | date("yyyy") }} Silvia Genevro.</p>
+  </footer>
+</body>
+</html>
