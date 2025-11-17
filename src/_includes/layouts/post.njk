@@ -1,0 +1,45 @@
+---
+layout: base.njk
+---
+
+<article>
+  <header>
+    <h1>{{ title }}</h1>
+
+    {% if date %}
+      <p><small>Pubblicato il {{ date | readableDate }}</small></p>
+    {% endif %}
+
+    {% if tags and tags.length %}
+      <p>
+        <small>Tag:
+          {% for tag in tags %}
+            <span>{{ tag }}</span>{% if not loop.last %}, {% endif %}
+          {% endfor %}
+        </small>
+      </p>
+    {% endif %}
+  </header>
+
+  {{ content | safe }}
+</article>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ title | dump }},
+  {% if date %}
+  "datePublished": "{{ date | date('yyyy-MM-dd') }}",
+  {% endif %}
+  "author": {
+    "@type": "Person",
+    "name": "Silvia Genevro"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": {{ page.url | url | dump }}
+  },
+  "description": {{ (seo_description or (content | excerpt)) | dump }}
+}
+</script>
