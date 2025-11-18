@@ -6,15 +6,14 @@ module.exports = function (eleventyConfig) {
   // (opzionale) se un giorno avrai immagini in src/images
   // eleventyConfig.addPassthroughCopy({ "src/images": "images" });
 
-  return {
-    dir: {
-      input: "src",
-      includes: "_includes",
-      // ⚠️ IMPORTANTE: NIENTE "layouts" QUI
-      output: "_site"
-    },
-    markdownTemplateEngine: "njk",
-    htmlTemplateEngine: "njk",
-    templateFormats: ["njk", "md"]
-  };
+ return {
+  dir: {
+    input: "src",
+    includes: "_includes/layouts",
+    output: "_site"
+  },
+  markdownTemplateEngine: "njk",
+  htmlTemplateEngine: "njk",
+  templateFormats: ["njk", "md"]
+};
 };
