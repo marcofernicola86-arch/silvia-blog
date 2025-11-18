@@ -2,11 +2,18 @@
 layout: base.njk
 ---
 
-<article>
+<article class="post">
   <header>
     <h1>{{ title }}</h1>
+
     {% if date %}
       <p><small>Pubblicato il {{ date }}</small></p>
+    {% endif %}
+
+    {% if cover %}
+      <p>
+        <img src="{{ cover }}" alt="{{ title }}" style="max-width:100%; height:auto;">
+      </p>
     {% endif %}
   </header>
 
