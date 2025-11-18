@@ -15,6 +15,7 @@ collections:
     extension: "md"
     format: "frontmatter"
     fields:
+    - { label: "Layout", name: "layout", widget: "hidden", default: "post.njk" }
       - { label: "Titolo", name: "title", widget: "string" }
       - { label: "Data", name: "date", widget: "datetime" }
       - { label: "Descrizione SEO", name: "seo_description", widget: "string", required: false }
