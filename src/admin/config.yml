@@ -5,6 +5,11 @@ backend:
 media_folder: "src/images/uploads"
 public_folder: "/images/uploads"
 
+media_library:
+  name: uploadcare
+  config:
+    publicKey: "e3284cd9f8c77cf3269d"
+
 collections:
   - name: "posts"
     label: "Articoli"
@@ -15,11 +20,40 @@ collections:
     extension: "md"
     format: "frontmatter"
     fields:
-    - { label: "Layout", name: "layout", widget: "hidden", default: "post.njk" }
-      - { label: "Titolo", name: "title", widget: "string" }
-      - { label: "Data", name: "date", widget: "datetime" }
-      - { label: "Descrizione SEO", name: "seo_description", widget: "string", required: false }
-      - { label: "Bozza?", name: "draft", widget: "boolean", default: false }
-      - { label: "Tag", name: "tags", widget: "list", default: ["mindfulness"] }
-      - { label: "Copertina", name: "cover", widget: "image", required: false }
-      - { label: "Contenuto", name: "body", widget: "markdown" }
+      - label: "Layout"
+        name: "layout"
+        widget: "hidden"
+        default: "post.njk"
+
+      - label: "Titolo"
+        name: "title"
+        widget: "string"
+
+      - label: "Data"
+        name: "date"
+        widget: "datetime"
+
+      - label: "Descrizione SEO"
+        name: "seo_description"
+        widget: "string"
+        required: false
+
+      - label: "Bozza?"
+        name: "draft"
+        widget: "boolean"
+        default: false
+
+      - label: "Tag"
+        name: "tags"
+        widget: "list"
+        default:
+          - "mindfulness"
+
+      - label: "Copertina"
+        name: "cover"
+        widget: "image"
+        required: false
+
+      - label: "Contenuto"
+        name: "body"
+        widget: "markdown"
