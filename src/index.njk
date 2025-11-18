@@ -6,12 +6,19 @@ title: Blog di Silvia Genevro
 <h2>Ultimi articoli</h2>
 
 <ul>
-  {% for post in collections.posts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.data.title }}</a>
-    </li>
-  {% else %}
-    <li>Nessun articolo pubblicato per ora.</li>
-  {% endfor %}
-</ul>
+  {% set found = false %}
 
+  {% for post in collections.all | reverse %}
+    {# Considera solo i file markdown nella cartella "fonte/posts" #}
+    {% if "/posts/" in post.inputPath %}
+      {% set found = true %}
+      <li>
+        <a href="{{ post.url }}">{{ post.data.title }}</a>
+      </li>
+    {% endif %}
+  {% endfor %}
+
+  {% if not found %}
+    <li>Nessun articolo pubblicato per ora.</li>
+  {% endif %}
+</ul>
