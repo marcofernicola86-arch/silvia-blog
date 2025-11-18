@@ -1,14 +1,17 @@
-module.exports = function(eleventyConfig) {
+// .eleventy.js
+module.exports = function (eleventyConfig) {
 
-  // Copia tutta la cartella admin (serve per Decap CMS)
+  // Copia la cartella admin così com'è
   eleventyConfig.addPassthroughCopy("src/admin");
 
-  // Copia eventuali asset (se servono)
-  eleventyConfig.addPassthroughCopy("src/assets");
+  // Copia le immagini se in futuro ne hai
+  eleventyConfig.addPassthroughCopy("src/images");
 
   return {
     dir: {
       input: "src",
+      includes: "_includes",
+      layouts: "_includes/layouts",
       output: "_site"
     }
   };
