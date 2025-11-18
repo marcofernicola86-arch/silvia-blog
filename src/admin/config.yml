@@ -1,15 +1,14 @@
-
 backend:
   name: git-gateway
   branch: main
-
 
 media_folder: "src/images/uploads"
 public_folder: "/images/uploads"
 
 media_library:
   name: uploadcare
-  config: {}
+  config:
+    publicKey: "e3284cd9f8c77cf3269d"
 
 collections:
   - name: "posts"
