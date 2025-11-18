@@ -3,17 +3,17 @@ module.exports = function (eleventyConfig) {
   // Copia la cartella admin così Decap CMS può caricare /admin/
   eleventyConfig.addPassthroughCopy("src/admin");
 
-  // (opzionale) se un giorno avrai immagini in src/images
-  // eleventyConfig.addPassthroughCopy({ "src/images": "images" });
+  // Copia le immagini caricate nel CMS (necessario per farle vedere nel sito!)
+  eleventyConfig.addPassthroughCopy("src/images/uploads");
 
- return {
-  dir: {
-    input: "src",
-    includes: "_includes/layouts",
-    output: "_site"
-  },
-  markdownTemplateEngine: "njk",
-  htmlTemplateEngine: "njk",
-  templateFormats: ["njk", "md"]
-};
+  return {
+    dir: {
+      input: "src",
+      includes: "_includes/layouts",
+      output: "_site"
+    },
+    markdownTemplateEngine: "njk",
+    htmlTemplateEngine: "njk",
+    templateFormats: ["njk", "md"]
+  };
 };
