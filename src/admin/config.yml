@@ -2,13 +2,16 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "src/images/uploads"     # dove vengono salvate le immagini nel repo
+media_folder: "src/images/uploads"     # cartella nel repo dove finiscono le immagini
 public_folder: "/images/uploads"       # percorso pubblico nel sito generato
+
+media_library:
+  name: "uploadcare"
 
 collections:
   - name: "posts"                      # nome tecnico
     label: "Articoli"                  # etichetta che vedrà Silvia
-    folder: "src/posts"                # cartella dove stanno i file .md
+    folder: "src/posts"                # cartella dove stanno i .md
     create: true                       # può creare nuovi articoli
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
