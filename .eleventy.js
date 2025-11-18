@@ -3,6 +3,8 @@ const { DateTime } = require("luxon");
 module.exports = function (eleventyConfig) {
   // Collezione "posts" ordinata per data decrescente, escludendo le bozze
   eleventyConfig.addCollection("posts", function (collectionApi) {
+     eleventyConfig.addPassthroughCopy({ "src/admin/config.yml": "admin/config.yml" });
+
     return collectionApi
       .getFilteredByGlob("src/posts/*.md")
       .filter((item) => !item.data.draft)
