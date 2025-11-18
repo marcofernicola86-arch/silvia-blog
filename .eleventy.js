@@ -1,39 +1,15 @@
-const { DateTime } = require("luxon");
-
 module.exports = function(eleventyConfig) {
 
+  // Copia tutta la cartella admin (serve per Decap CMS)
   eleventyConfig.addPassthroughCopy("src/admin");
+
+  // Copia eventuali asset (se servono)
+  eleventyConfig.addPassthroughCopy("src/assets");
 
   return {
     dir: {
       input: "src",
       output: "_site"
     }
-  };
-};
-
-  // Filtro data leggibile
-  eleventyConfig.addFilter("readableDate", (dateObj) => {
-    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("dd LLL yyyy");
-  });
-
-  // Filtro excerpt (primi ~200 caratteri del contenuto, senza HTML)
-  eleventyConfig.addFilter("excerpt", (content) => {
-    if (!content) return "";
-    const plain = content.replace(/(<([^>]+)>)/gi, "");
-    const match = plain.match(/^(.{1,200})\b/);
-    return match ? match[1] + "…" : plain;
-  });
-
-  return {
-    dir: {
-      input: "src",
-      includes: "_includes",
-      layouts: "_includes/layouts",
-      output: "_site"
-    },
-    markdownTemplateEngine: "njk",
-    htmlTemplateEngine: "njk",
-    dataTemplateEngine: "njk"
   };
 };
