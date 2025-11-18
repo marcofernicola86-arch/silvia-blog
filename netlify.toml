@@ -2,7 +2,12 @@
   command = "npm run build"
   publish = "_site"
 
-[dev]
-  command = "npm start"
-  port = 8080
-  targetPort = 8080
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/.netlify/*"
+  to = "/.netlify/:splat"
+  status = 200
