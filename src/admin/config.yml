@@ -1,7 +1,6 @@
 
 backend:
-  name: github
-  repo: marcofernicola86-arch/silvia-blog
+  name: git-gateway
   branch: main
 
 
