@@ -2,25 +2,29 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "src/uploads"
-public_folder: "/uploads"
-
-site_url: "https://blog.silviagenevro.it"
-display_url: "https://blog.silviagenevro.it"
-
-locale: "it"
+media_folder: "src/images/uploads"     # dove vengono salvate le immagini nel repo
+public_folder: "/images/uploads"       # percorso pubblico nel sito generato
 
 collections:
-  - name: "posts"
-    label: "Articoli"
-    label_singular: "Articolo"
-    folder: "src/posts"
-    create: true
+  - name: "posts"                      # nome tecnico
+    label: "Articoli"                  # etichetta che vedrà Silvia
+    folder: "src/posts"                # cartella dove stanno i file .md
+    create: true                       # può creare nuovi articoli
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { label: "Titolo", name: "title", widget: "string" }
-      - { label: "Data", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
-      - { label: "Bozza", name: "draft", widget: "boolean", default: false }
-      - { label: "Descrizione SEO", name: "seo_description", widget: "string", required: false }
-      - { label: "Tag", name: "tags", widget: "list", required: false }
-      - { label: "Contenuto", name: "body", widget: "markdown" }
+      - label: "Titolo"
+        name: "title"
+        widget: "string"
+
+      - label: "Data"
+        name: "date"
+        widget: "datetime"
+
+      - label: "Bozza"
+        name: "draft"
+        widget: "boolean"
+        default: true
+
+      - label: "Contenuto"
+        name: "body"
+        widget: "markdown"
