@@ -1,0 +1,28 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/images/uploads"
+public_folder: "/images/uploads"
+
+media_library:
+  name: uploadcare
+  config: {}
+
+collections:
+  - name: "posts"
+    label: "Articoli"
+    label_singular: "Articolo"
+    folder: "src/posts"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Titolo", name: "title", widget: "string" }
+      - { label: "Data", name: "date", widget: "datetime" }
+      - { label: "Descrizione SEO", name: "seo_description", widget: "string", required: false }
+      - { label: "Bozza?", name: "draft", widget: "boolean", default: false }
+      - { label: "Tag", name: "tags", widget: "list", default: ["mindfulness"] }
+      - { label: "Copertina", name: "cover", widget: "image", required: false }
+      - { label: "Contenuto", name: "body", widget: "markdown" }
