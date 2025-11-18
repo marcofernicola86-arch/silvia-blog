@@ -1,15 +1,16 @@
 const { DateTime } = require("luxon");
 
-module.exports = function (eleventyConfig) {
-  // Collezione "posts" ordinata per data decrescente, escludendo le bozze
-  eleventyConfig.addCollection("posts", function (collectionApi) {
-     eleventyConfig.addPassthroughCopy("src/admin"); });
+module.exports = function(eleventyConfig) {
 
-    return collectionApi
-      .getFilteredByGlob("src/posts/*.md")
-      .filter((item) => !item.data.draft)
-      .sort((a, b) => b.date - a.date);
-  });
+  eleventyConfig.addPassthroughCopy("src/admin");
+
+  return {
+    dir: {
+      input: "src",
+      output: "_site"
+    }
+  };
+};
 
   // Filtro data leggibile
   eleventyConfig.addFilter("readableDate", (dateObj) => {
