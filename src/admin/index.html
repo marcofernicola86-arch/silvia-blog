@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <title>Blog Silvia – Admin</title>
 
-  <!-- Uploadcare (chiave pubblica) -->
+  <!-- Uploadcare: chiave pubblica -->
   <script>
     window.UPLOADCARE_PUBLIC_KEY = "e3284cd9f8c77cf3269d";
   </script>
@@ -14,18 +14,21 @@
 
   <!-- Decap CMS -->
   <script src="https://unpkg.com/decap-cms@3.0.0/dist/decap-cms.js"></script>
+
+  <!-- PLUGIN Uploadcare per Decap CMS -->
+  <script src="https://unpkg.com/netlify-cms-widget-uploadcare@1.2.3"></script>
 </head>
 
 <body>
   <div id="nc-root"></div>
 
-  <!-- Registrazione Uploadcare in Decap CMS -->
+  <!-- Registrazione widget -->
   <script>
     window.addEventListener("DOMContentLoaded", function() {
-      if (window.CMS && window.uploadcareCmsWidget) {
-        CMS.registerWidget("image", window.uploadcareCmsWidget);
+      if (window.CMS && window.UploadcareWidget) {
+        CMS.registerWidget("image", UploadcareWidget);
       } else {
-        console.error("CMS o uploadcareCmsWidget non disponibile");
+        console.error("CMS o UploadcareWidget mancante");
       }
     });
   </script>
