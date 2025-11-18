@@ -1,5 +1,6 @@
 ---
-layout: layouts/post.njk
+layout: post.njk
+
 title: "titolo"
 date: 2025-01-01
 
