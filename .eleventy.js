@@ -25,3 +25,6 @@ module.exports = function (eleventyConfig) {
     templateFormats: ["njk", "md"]
   };
 };
+eleventyConfig.addCollection("posts", function (collectionApi) {
+  return collectionApi.getFilteredByGlob("src/posts/*.md");
+});
