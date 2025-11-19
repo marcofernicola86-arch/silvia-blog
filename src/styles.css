@@ -1,0 +1,178 @@
+/* ===== BASE SITO (copiato dal sito principale) ===== */
+body {
+  margin: 0;
+  font-family: Lato, Arial, sans-serif;
+  background: #fffaf5;
+  color: #24323a;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: Montserrat, Arial, sans-serif;
+  margin: 0 0 12px;
+}
+
+/* ===== HEADER ===== */
+header {
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+  padding: 12px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-brand {
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: #24323a;
+}
+
+header nav {
+  white-space: nowrap;
+}
+header nav a {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 12px;
+  text-decoration: none;
+  color: #24323a;
+  font-weight: 600;
+  font-size: 1.05em;
+}
+
+header nav a.blog-active {
+  color: #2fa79b;
+}
+
+/* Migliora leggibilità su mobile */
+@media (max-width: 992px) {
+  header nav a {
+    font-size: 1em;
+    margin: 0 8px;
+  }
+}
+
+/* ===== LAYOUT GENERALE ===== */
+main {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px 40px;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.section-subtitle {
+  color: #5b6b73;
+  margin-bottom: 24px;
+}
+
+/* ===== LISTA ARTICOLI ===== */
+.post-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.post-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  padding: 18px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+
+.post-card-cover {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  object-fit: cover;
+  max-height: 220px;
+}
+
+.post-card-title {
+  font-size: 1.2rem;
+  margin: 4px 0 6px;
+}
+
+.post-card-title a {
+  text-decoration: none;
+  color: #24323a;
+}
+
+.post-card-title a:hover {
+  text-decoration: underline;
+}
+
+.post-card-meta {
+  font-size: 0.85rem;
+  color: #6c7a80;
+  margin-bottom: 10px;
+}
+
+.post-card-excerpt {
+  font-size: 0.95rem;
+  color: #37454c;
+}
+
+/* ===== PAGINA ARTICOLO ===== */
+.post-header {
+  margin-bottom: 24px;
+}
+
+.post-header h1 {
+  font-size: 2rem;
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  color: #6c7a80;
+}
+
+.post-cover {
+  width: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin: 20px 0;
+}
+
+.post-content {
+  font-size: 1.02rem;
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  padding: 20px;
+  text-align: center;
+  color: #5b6b73;
+  font-size: .9em;
+  background: #fafafa;
+  border-top: 1px solid rgba(0,0,0,0.03);
+}
