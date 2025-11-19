@@ -1,6 +1,7 @@
 ---
 title: "Prova Mandala "
 date: 2025-11-18T23:07:31.734Z
+layout: post.njk
 seo_description: pippo pluto paperino
 draft: false
 tags:
