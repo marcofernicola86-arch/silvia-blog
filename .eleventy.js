@@ -1,10 +1,18 @@
 // .eleventy.js
+const { DateTime } = require("luxon");
+
 module.exports = function (eleventyConfig) {
-  // Copia la cartella admin così Decap CMS può caricare /admin/
+
+  // ---- Filtro DATE (per nunjucks) ----
+  eleventyConfig.addFilter("date", (value, format = "dd LLL yyyy") => {
+    return DateTime.fromJSDate(new Date(value)).toFormat(format);
+  });
+
+  // Copia cartella admin
   eleventyConfig.addPassthroughCopy("src/admin");
 
-  // Copia le immagini caricate nel CMS (necessario per farle vedere nel sito!)
-  eleventyConfig.addPassthroughCopy("src/images/uploads");
+  // Copia eventuali immagini
+  eleventyConfig.addPassthroughCopy({ "src/images": "images" });
 
   return {
     dir: {
