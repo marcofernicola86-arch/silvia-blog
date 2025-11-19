@@ -1,77 +1,35 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <title>{% if title %}{{ title }} – Blog Silvia Genevro{% else %}Blog Silvia Genevro{% endif %}</title>
 
-  {# ---- TITLE ---- #}
-  <title>
-    {% if title %}
-      {{ title }} | Blog di Silvia Genevro
-    {% else %}
-      Blog di Silvia Genevro
-    {% endif %}
-  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  {# ---- META DESCRIPTION ---- #}
-  {% if description %}
-    <meta name="description" content="{{ description }}">
-  {% endif %}
-  <meta name="author" content="Silvia Genevro">
+  {# Meta description di base / da articolo se disponibile #}
+  <meta name="description"
+        content="{{ seo_description or 'Articoli di mindfulness, MBSR e consapevolezza di Silvia Genevro.' }}" />
 
-  {# ---- OPEN GRAPH ---- #}
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="it_IT">
-  <meta property="og:site_name" content="Blog di Silvia Genevro">
-  <meta property="og:title" content="{% if title %}{{ title }} | Blog di Silvia Genevro{% else %}Blog di Silvia Genevro{% endif %}">
-  {% if description %}
-    <meta property="og:description" content="{{ description }}">
-  {% endif %}
-  {% if site and site.url %}
-    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-  {% endif %}
-
-  {# ---- STYLES (modifica il path se hai un CSS diverso) ---- #}
-  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
-
-  <header class="site-header">
-    <div class="container">
-      <a href="/" class="logo">Silvia Genevro</a>
-      <nav class="main-nav">
-        <a href="/blog/">Blog</a>
-        <a href="/contatti/">Contatti</a>
+  <header>
+    <div class="header-inner">
+      <a href="https://silviagenevro.it" class="header-brand">Silvia Genevro</a>
+      <nav>
+        <a href="https://silviagenevro.it">Home</a>
+        <a href="/" class="blog-active">Blog</a>
+        <a href="https://silviagenevro.it/#contatti">Contatti</a>
       </nav>
     </div>
   </header>
 
-  <main id="main-content" class="site-main">
-    <div class="container">
-      {{ content | safe }}
-    </div>
+  <main>
+    {{ content | safe }}
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2025 Silvia Genevro. Tutti i diritti riservati.</p>
-
-    </div>
+  <footer>
+    © {{ "now" | date("yyyy") }} Silvia Genevro. Tutti i diritti riservati.
   </footer>
-
-  {# ---- NETLIFY IDENTITY WIDGET (PER LOGIN CMS) ---- #}
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", function(user) {
-        if (!user) {
-          window.netlifyIdentity.on("login", function() {
-            document.location.href = "/admin/";
-          });
-        }
-      });
-    }
-  </script>
-
 </body>
 </html>
