@@ -1,24 +1,39 @@
 ---
 layout: base.njk
-title: Blog di Silvia Genevro
+title: Blog
 ---
 
-<h2>Ultimi articoli</h2>
+<section>
+  <h1 class="section-title">Blog di Silvia Genevro</h1>
+  <p class="section-subtitle">
+    Pensieri, pratiche e suggerimenti su mindfulness, MBSR e vita quotidiana consapevole.
+  </p>
 
-<ul>
-  {% set found = false %}
+  {% if collections.posts and collections.posts | length %}
+    <div class="post-list">
+      {% for post in collections.posts | reverse %}
+        <article class="post-card">
+          {% if post.data.cover %}
+            <img src="{{ post.data.cover }}" alt="" class="post-card-cover" />
+          {% endif %}
 
-  {% for post in collections.all | reverse %}
-    {# Considera solo i file markdown nella cartella "fonte/posts" #}
-    {% if "/posts/" in post.inputPath %}
-      {% set found = true %}
-      <li>
-        <a href="{{ post.url }}">{{ post.data.title }}</a>
-      </li>
-    {% endif %}
-  {% endfor %}
+          <h2 class="post-card-title">
+            <a href="{{ post.url }}">{{ post.data.title }}</a>
+          </h2>
 
-  {% if not found %}
-    <li>Nessun articolo pubblicato per ora.</li>
+          <div class="post-card-meta">
+            Pubblicato il {{ post.date | date("dd MMMM yyyy") }}
+          </div>
+
+          {% if post.data.seo_description %}
+            <p class="post-card-excerpt">
+              {{ post.data.seo_description }}
+            </p>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>Nessun articolo pubblicato per ora.</p>
   {% endif %}
-</ul>
+</section>
