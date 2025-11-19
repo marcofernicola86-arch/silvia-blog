@@ -28,3 +28,4 @@ module.exports = function (eleventyConfig) {
 eleventyConfig.addCollection("posts", function (collectionApi) {
   return collectionApi.getFilteredByGlob("src/posts/*.md");
 });
+eleventyConfig.addPassthroughCopy({ "src/images/uploads": "images/uploads" });
